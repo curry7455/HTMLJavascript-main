@@ -1,40 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>BOM and DOM Lab</title>
+<meta charset="utf-8">
+<title>Week 2 Files</title>
+<style type="text/css">
+    .border { border: 1px solid black; }
+</style>
 </head>
+
 <body>
-    <h1>BOM and DOM Lab</h1>
-<!-- 
-    <div id="output"></div>
-    <script>
-        var div = document.querySelector(`#output`)
-        var header = document.querySelector('h1')
-        var p = document.createElement(`p`)
-        p.setAttribute(`id`, `some-id`);
+    <script type="text/javascript">
+        var people = [
+            {first:"Jason", last:"Vorhees", credit:"Friday the 13th"},
+            {first:"Freddy", last:"Krueger", credit:"A Nightmare on Elm Street"},
+            {first:"Roger", last:"Rabbit", credit:"Who Framed Roger Rabbit"},
+            {first:"Kevin", last:"McCallister", credit:"Home Alone"},
+            {first:"Godzilla", last:"King of The Monsters", credit:"Godzilla"},
+            {first:"Buzz", last:"Lightyear", credit:"Toy Story"},
+            {first:"Marion", last:"Cobretti", credit:"Cobra"}
+        ];
 
-        var text = document.createTextNode("This is text inside of the p tag");
-        p.appendChild("text")
-        div.appendChild("p")
-        header.addEventListener('click', function(e){
-            div.removeChild.(p);
-        });
-    </script> -->
-    <p class="names">Jay</p>
-<h2 class="names">Katie</h2>
-<div class="names">Marty</div>
+        // Loop through the people array and create div elements for each character
+        for (var i = 0; i < people.length; i++) {
+            var character = people[i];
 
-<script>
-  var names = document.querySelectorAll(`.names`)
-  console.log(names)
+            // Create a new div element
+            var div = document.createElement("div");
 
-  for(let i=0; i < names.length; i++)
-  {
-    names[i].style.color = `red`
-    //makes all of the elements with a .names class turn red.
-  }
-</script
+            // Add class "border" to the div using dot syntax
+            div.classList.add("border");
 
+            // Set id for the div using setAttribute method
+            div.setAttribute("id", "character" + (i + 1));
+
+            // Create paragraph elements for first name, last name, and credit
+            var firstName = document.createElement("p");
+            firstName.textContent = "First Name: " + character.first;
+            var lastName = document.createElement("p");
+            lastName.textContent = "Last Name: " + character.last;
+            var credit = document.createElement("p");
+            credit.textContent = "Credit: " + character.credit;
+
+            // Append paragraph elements to the div
+            div.appendChild(firstName);
+            div.appendChild(lastName);
+            div.appendChild(credit);
+
+            // Append the div to the body of the document
+            document.body.appendChild(div);
+        }
+    </script>
+	<a href="../index.html">Homepage!!!</a>
 </body>
 </html>
